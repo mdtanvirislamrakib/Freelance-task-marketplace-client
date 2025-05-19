@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroSlider from '../Components/HeroSlider';
+import PopularCategories from '../Components/PopularCategories';
 
 const Home = () => {
     return (
@@ -7,6 +8,7 @@ const Home = () => {
             <div>
                 <HeroSlider></HeroSlider>
             </div>
+            <PopularCategories></PopularCategories>
         </div>
     );
 };

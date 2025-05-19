@@ -11,6 +11,7 @@ const HomeLayout = () => {
 
             <main>
                 <Outlet></Outlet>
+                
             </main>
 
             <footer>
