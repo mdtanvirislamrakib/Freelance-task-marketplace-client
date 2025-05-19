@@ -1,6 +1,7 @@
 import React from 'react';
 import HeroSlider from '../Components/HeroSlider';
 import PopularCategories from '../Components/PopularCategories';
+import FaqSection from '../Components/FaqSection';
 
 const Home = () => {
     return (
@@ -8,7 +9,14 @@ const Home = () => {
             <div>
                 <HeroSlider></HeroSlider>
             </div>
-            <PopularCategories></PopularCategories>
+            <div>
+               <PopularCategories></PopularCategories> 
+            </div>
+
+            <div>
+                <FaqSection></FaqSection>
+            </div>
+            
         </div>
     );
 };

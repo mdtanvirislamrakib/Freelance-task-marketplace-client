@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay, EffectFade, Parallax } from "swiper/modules";
+import { Pagination, Autoplay, EffectFade, Parallax } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
@@ -37,7 +36,7 @@ const HeroSlider = () => {
   return (
     <div className="relative w-full h-screen max-h-[90vh] overflow-hidden bg-black">
       <Swiper
-        modules={[Navigation, Pagination, Autoplay, EffectFade, Parallax]}
+        modules={[Pagination, Autoplay, EffectFade, Parallax]}
         autoplay={{
           delay: 6000,
           disableOnInteraction: false,
@@ -50,10 +49,6 @@ const HeroSlider = () => {
           renderBullet: (index, className) => {
             return `<span class="${className} w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"></span>`;
           },
-        }}
-        navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
         }}
         effect="fade"
         fadeEffect={{ crossFade: true }}
@@ -95,10 +90,6 @@ const HeroSlider = () => {
             </div>
           </SwiperSlide>
         ))}
-
-        {/* Custom Navigation Arrows */}
-        <div className="swiper-button-next !text-white !w-12 !h-12 !right-6 md:!right-12 !top-1/2 -translate-y-1/2 z-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 hover:bg-black/60 transition-all duration-300 after:!text-2xl hover:!scale-110"></div>
-        <div className="swiper-button-prev !text-white !w-12 !h-12 !left-6 md:!left-12 !top-1/2 -translate-y-1/2 z-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 hover:bg-black/60 transition-all duration-300 after:!text-2xl hover:!scale-110"></div>
 
         {/* Custom Pagination Dots */}
         <div className="custom-pagination absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex space-x-2"></div>
