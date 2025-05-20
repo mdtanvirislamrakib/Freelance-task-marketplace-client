@@ -1,7 +1,31 @@
 
+import { use } from 'react';
 import { Link } from 'react-router';
+import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Signup = () => {
+  const { SignUpUser, setUser } = use(AuthContext)
+
+
+  const handleSignUp = e => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photoURL = form.photoURL.value;
+    console.log({ name, photoURL });
+
+    SignUpUser(email, password)
+    .then(result => {
+      const user = result.user;
+      setUser(user)
+    })
+    .catch(error => {
+      console.log(error.message);
+    })
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black px-4 sm:px-6 lg:px-8 py-10 lg:py-20">
@@ -14,8 +38,11 @@ const Signup = () => {
             Join our freelance marketplace today
           </p>
         </div>
+        <div>
+          <button className='w-full flex items-center justify-center gap-5 font-bold px-5 py-3 rounded-sm border text-white cursor-pointer hover:bg-gray-900 transition-all '><FcGoogle size={25} /> Continue With Google</button>
+        </div>
 
-        <form className="mt-8 space-y-6">
+        <form onSubmit={handleSignUp} className="mt-8 space-y-6">
 
           {/* Name */}
           <div>
@@ -68,12 +95,12 @@ const Signup = () => {
           {/* Profile Photo URL */}
           <div>
             <label htmlFor="photoURL" className="block text-sm font-medium text-gray-300 mb-1">
-              Profile Picture URL (Optional)
+              Profile Picture URL
             </label>
             <input
               id="photoURL"
               name="photoURL"
-              type="url"
+              type="text"
               className="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-600 placeholder-gray-400 text-white bg-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               placeholder="https://example.com/profile.jpg "
             />
@@ -82,12 +109,14 @@ const Signup = () => {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150"
+              className="cursor-pointer relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150"
             >
               Sign Up
             </button>
           </div>
         </form>
+
+        
 
         <div className="text-center">
           <p className="text-sm text-gray-400">

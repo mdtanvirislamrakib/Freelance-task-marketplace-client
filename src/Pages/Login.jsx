@@ -1,4 +1,5 @@
 
+import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router';
 
 const Login = () => {
@@ -13,6 +14,10 @@ const Login = () => {
           <p className="mt-2 text-center text-sm text-gray-300">
             Sign in to your freelance marketplace account
           </p>
+        </div>
+
+        <div>
+          <button className='w-full flex items-center justify-center gap-5 font-bold px-5 py-3 rounded-sm border text-white cursor-pointer hover:bg-gray-900 transition-all '><FcGoogle size={25} /> Continue With Google</button>
         </div>
 
         <form className="mt-8 space-y-6">
