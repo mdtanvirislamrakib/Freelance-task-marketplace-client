@@ -5,6 +5,8 @@ import {
 import HomeLayout from "../HomeLayout/HomeLayout";
 import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Pages/Home";
+import Login from "../Pages/Login";
+import Signup from "../Pages/Signup";
 
 
 export const router = createBrowserRouter([
@@ -14,8 +16,16 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
         {
-            index: true,
-            Component: Home,
+          index: true,
+          Component: Home,
+        },
+        {
+          path: '/signup',
+          Component: Signup,
+        },
+        {
+          path: '/login',
+          Component: Login,
         }
     ]
   },

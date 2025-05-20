@@ -15,16 +15,16 @@ const Footer = () => {
               Connect with top freelancers and complete your projects faster than ever.
             </p>
             <div className="flex space-x-4">
-              <a href="#" aria-label="Facebook" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">
+              <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">
                 <FaFacebookF />
               </a>
-              <a href="#" aria-label="Twitter" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+              <a href="https://x.com/" target="_blank" aria-label="Twitter" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">
                 <FaTwitter />
               </a>
-              <a href="#" aria-label="Instagram" className="text-gray-400 hover:text-pink-500 transition-colors duration-300">
+              <a href="https://www.instagram.com" target="_blank" aria-label="Instagram" className="text-gray-400 hover:text-pink-500 transition-colors duration-300">
                 <FaInstagram />
               </a>
-              <a href="#" aria-label="LinkedIn" className="text-gray-400 hover:text-blue-600 transition-colors duration-300">
+              <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn" className="text-gray-400 hover:text-blue-600 transition-colors duration-300">
                 <FaLinkedinIn />
               </a>
             </div>
@@ -40,7 +40,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <span className="mr-2 text-indigo-400 mt-1">📞</span>
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+                <span className="text-gray-400">+88 01880598006</span>
               </li>
               <li className="flex items-start">
                 <span className="mr-2 text-indigo-400 mt-1">✉️</span>
@@ -54,16 +54,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-white mb-4">Legal</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Terms of Service</a>
+                <a href="https://www.teemservices.com/" target="_blank" className="text-gray-400 hover:text-white transition-colors duration-300">Terms of Service</a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a>
+                <a href="https://policies.google.com/privacy?hl=en-US" target="_blank" className="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Cookie Policy</a>
+                <a href="https://www.cookiebot.com/en/cookie-policy/#:~:text=What%20is%20a%20cookie%20policy,data%20you%20collect%20via%20cookies." target="_blank" className="text-gray-400 hover:text-white transition-colors duration-300">Cookie Policy</a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Refund Policy</a>
+                <a href="https://support.google.com/googleplay/answer/2479637?hl=en" target="_blank" className="text-gray-400 hover:text-white transition-colors duration-300">Refund Policy</a>
               </li>
             </ul>
           </div>
@@ -99,9 +99,9 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
           <p>© {new Date().getFullYear()} TaskMarket. All rights reserved.</p>
           <div className="mt-4 md:mt-0 flex space-x-6">
-            <a href="#" className="hover:text-white transition-colors duration-300">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors duration-300">Terms of Use</a>
-            <a href="#" className="hover:text-white transition-colors duration-300">Sitemap</a>
+            <a href="https://www.privacypolicygenerator.info/" target="_blank" className="hover:text-white transition-colors duration-300">Privacy Policy</a>
+            <a href="https://termly.io/resources/templates/terms-of-use-template/" target="_blank" className="hover:text-white transition-colors duration-300">Terms of Use</a>
+            <a href="https://www.xml-sitemaps.com/" target="_blank" className="hover:text-white transition-colors duration-300">Sitemap</a>
           </div>
         </div>
       </div>
