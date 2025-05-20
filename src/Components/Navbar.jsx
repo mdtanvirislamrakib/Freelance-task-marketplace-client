@@ -32,21 +32,11 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut().then(() => {
       Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be logout!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, logout!"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire({
-            title: "LogOut!",
-            text: "Successfully Logout.",
-            icon: "success"
-          });
-        }
+        position: "top-right",
+        icon: "success",
+        title: "Logout Successfully!",
+        showConfirmButton: false,
+        timer: 1500
       });
     }).catch(error => {
       Swal.fire({
@@ -104,9 +94,10 @@ const Navbar = () => {
             {user && (
               <div className="relative">
                 {/* Avatar - Click to toggle dropdown */}
-                <div onClick={showDropdown} className="avatar cursor-pointer">
+                <div className="avatar cursor-pointer">
                   <div className="w-10 rounded-full ring-2 ring-indigo-500 ring-offset-2 transition-transform duration-300 hover:ring-offset-base-100 hover:scale-105">
                     <img
+                      onClick={showDropdown}
                       src={user?.photoURL}
                       alt="User Avatar"
                       className="object-cover"

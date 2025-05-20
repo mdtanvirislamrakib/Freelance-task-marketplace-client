@@ -1,12 +1,13 @@
 
 import { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../Provider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Signup = () => {
-  const { SignUpUser, setUser } = use(AuthContext)
-
+  const { SignUpUser, setUser, googleLogin } = use(AuthContext)
+  const navigate = useNavigate()
 
   const handleSignUp = e => {
     e.preventDefault();
@@ -18,13 +19,25 @@ const Signup = () => {
     console.log({ name, photoURL });
 
     SignUpUser(email, password)
-    .then(result => {
-      const user = result.user;
-      setUser(user)
-    })
-    .catch(error => {
-      console.log(error.message);
-    })
+      .then(result => {
+        const user = result.user;
+        setUser(user)
+      })
+      .catch(error => {
+        console.log(error.message);
+      })
+  }
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then(result => {
+        console.log(result.user);
+        navigate("/");
+        toast.success('Successfully SignUp!')
+      })
+      .catch(error => {
+        console.log(error.message);
+      })
   }
 
   return (
@@ -39,7 +52,7 @@ const Signup = () => {
           </p>
         </div>
         <div>
-          <button className='w-full flex items-center justify-center gap-5 font-bold px-5 py-3 rounded-sm border text-white cursor-pointer hover:bg-gray-900 transition-all '><FcGoogle size={25} /> Continue With Google</button>
+          <button onClick={handleGoogleLogin} className='w-full flex items-center justify-center gap-5 font-bold px-5 py-3 rounded-sm border text-white cursor-pointer hover:bg-gray-900 transition-all '><FcGoogle size={25} /> Continue With Google</button>
         </div>
 
         <form onSubmit={handleSignUp} className="mt-8 space-y-6">
@@ -116,7 +129,7 @@ const Signup = () => {
           </div>
         </form>
 
-        
+
 
         <div className="text-center">
           <p className="text-sm text-gray-400">

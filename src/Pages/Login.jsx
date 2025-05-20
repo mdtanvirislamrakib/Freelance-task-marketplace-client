@@ -1,8 +1,43 @@
 
+import { use } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Login = () => {
+  const {login, googleLogin} = use(AuthContext);
+
+  const navigate = useNavigate()
+
+  const handleLogIn = e => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    login(email, password)
+    .then(result => {
+      console.log(result.user);
+      navigate("/");
+      toast.success('Successfully Login!')
+    })
+    .catch(error => {
+      console.log(error.message);
+    })
+  }
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+    .then(result => {
+      console.log(result.user);
+      navigate("/");
+      toast.success('Successfully Login!')
+    })
+    .catch(error => {
+      console.log(error.message);
+    })
+  }
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black px-4 sm:px-6 lg:px-8">
@@ -17,10 +52,10 @@ const Login = () => {
         </div>
 
         <div>
-          <button className='w-full flex items-center justify-center gap-5 font-bold px-5 py-3 rounded-sm border text-white cursor-pointer hover:bg-gray-900 transition-all '><FcGoogle size={25} /> Continue With Google</button>
+          <button onClick={handleGoogleLogin} className='w-full flex items-center justify-center gap-5 font-bold px-5 py-3 rounded-sm border text-white cursor-pointer hover:bg-gray-900 transition-all '><FcGoogle size={25} /> Continue With Google</button>
         </div>
 
-        <form className="mt-8 space-y-6">
+        <form onSubmit={handleLogIn} className="mt-8 space-y-6">
 
           <div className="rounded-md shadow-sm space-y-4">
             <div>
