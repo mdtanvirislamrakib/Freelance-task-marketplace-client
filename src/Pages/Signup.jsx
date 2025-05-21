@@ -4,9 +4,10 @@ import { Link, useNavigate } from 'react-router';
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../Provider/AuthProvider';
 import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
 
 const Signup = () => {
-  const { SignUpUser, setUser, googleLogin } = use(AuthContext)
+  const { SignUpUser, setUser, googleLogin, updateUser } = use(AuthContext)
   const navigate = useNavigate()
 
   const handleSignUp = e => {
@@ -18,13 +19,53 @@ const Signup = () => {
     const photoURL = form.photoURL.value;
     console.log({ name, photoURL });
 
+    const lengthValidation = /[A-Za-z\d@$!%*?&]{6,}/;
+    const smallLetterValidation = /(?=.*[a-z])/
+    const capitalLetterValidation = /(?=.*[A-Z])/
+    const digitValidation = /(?=.*\d)/;
+    if (lengthValidation.test(password) === false) {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid Password",
+        text: "Password Must be 6 charecter",
+      });
+    } else if (smallLetterValidation.test(password) === false) {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid Password",
+        text: "password must have a small letter!",
+      });
+    } else if (capitalLetterValidation.test(password) === false) {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid Password",
+        text: "Password must be have an UpperCase Letter!",
+      });
+    } else if (digitValidation.test(password) === false) {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid Password",
+        text: "Password must be have a number!",
+      });
+    }
+
+
     SignUpUser(email, password)
       .then(result => {
         const user = result.user;
-        setUser(user)
+        updateUser({ displayName: name, photoURL: photoURL }).then(() => {
+          setUser({ ...user, displayName: name, photoURL: photoURL })
+          toast.success('Successfully Login!')
+          navigate("/")
+        }).catch(error => {
+          setUser(user)
+          toast.error(`${error.message}`)
+        })
+
       })
       .catch(error => {
         console.log(error.message);
+
       })
   }
 

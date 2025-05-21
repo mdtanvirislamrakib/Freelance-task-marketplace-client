@@ -1,13 +1,14 @@
 import React from 'react';
 import errorImage from '../assets/404/404.gif'
 import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer';
 
 const ErrorPage = () => {
     return (
 
         <div>
             <Navbar></Navbar>
-            <div className='flex items-center justify-center flex-col'>
+            <div className='flex items-center justify-center flex-col mb-10'>
 
                 <div>
                     <img src={errorImage} alt="" className='max-w-3xl mx-auto' />
@@ -18,6 +19,7 @@ const ErrorPage = () => {
                 </div>
 
             </div>
+            <Footer></Footer>
         </div>
     );
 };
