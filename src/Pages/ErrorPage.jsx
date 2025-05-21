@@ -7,7 +7,6 @@ const ErrorPage = () => {
     return (
 
         <div>
-            <Navbar></Navbar>
             <div className='flex items-center justify-center flex-col mb-10'>
 
                 <div>
@@ -19,7 +18,6 @@ const ErrorPage = () => {
                 </div>
 
             </div>
-            <Footer></Footer>
         </div>
     );
 };
