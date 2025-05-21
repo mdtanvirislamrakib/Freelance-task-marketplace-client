@@ -11,6 +11,7 @@ import PrivetRoute from "../Provider/PrivetRoute";
 import AddTask from "../Pages/AddTask";
 import BrowseTask from "../Pages/BrowseTask";
 import MyPostedTask from "../Pages/MyPostedTask";
+import Loader from "../Components/Loader";
 
 
 export const router = createBrowserRouter([
@@ -21,6 +22,8 @@ export const router = createBrowserRouter([
     children: [
         {
           index: true,
+          loader: () => fetch('http://localhost:5000/tasks'),
+          hydrateFallbackElement: <Loader></Loader>,
           Component: Home,
         },
         {
