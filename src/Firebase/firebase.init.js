@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC8DRASMzpWq3Zo4jtY5AAUGa59brnqpiE",
-  authDomain: "freelance-task-marketpla-eda4e.firebaseapp.com",
-  projectId: "freelance-task-marketpla-eda4e",
-  storageBucket: "freelance-task-marketpla-eda4e.firebasestorage.app",
-  messagingSenderId: "805017646132",
-  appId: "1:805017646132:web:a05e319ccd3a5cb2fb8661"
+  apiKey:import.meta.env.VITE_apiKey,
+  authDomain:import.meta.env.VITE_authDomain,
+  projectId:import.meta.env.VITE_projectId,
+  storageBucket:import.meta.env.VITE_storageBucket,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId,
+  appId:import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
