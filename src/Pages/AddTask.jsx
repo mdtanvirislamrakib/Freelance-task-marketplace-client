@@ -52,10 +52,8 @@ const AddTask = () => {
 
     return (
         <div
-            className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800 p-4"
-            data-aos="fade-up"
-        >
-            <div className="w-full max-w-lg bg-gray-800 rounded-xl shadow-2xl p-8">
+            className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800 p-4">
+            <div className="w-full max-w-lg bg-gray-800 rounded-xl shadow-2xl p-8" data-aos="fade-up">
                 <h2 className="text-2xl font-bold text-center text-white mb-6">Add New Task</h2>
                 <form onSubmit={handleAddTask} className="space-y-4">
 

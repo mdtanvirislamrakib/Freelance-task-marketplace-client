@@ -17,7 +17,6 @@ const Signup = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photoURL = form.photoURL.value;
-    console.log({ name, photoURL });
 
     const lengthValidation = /[A-Za-z\d@$!%*?&]{6,}/;
     const smallLetterValidation = /(?=.*[a-z])/
@@ -154,7 +153,7 @@ const Signup = () => {
             <input
               id="photoURL"
               name="photoURL"
-              type="text"
+              type="url"
               className="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-600 placeholder-gray-400 text-white bg-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               placeholder="https://example.com/profile.jpg "
             />

@@ -4,17 +4,21 @@ import { NavLink } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { Tooltip } from 'react-tooltip';
+import Loader from "./Loader";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropDown, setDropDown] = useState(false);
-  const { user, logOut } = use(AuthContext);
+  const { user, logOut, loading } = use(AuthContext);
+  
+
+  if(loading) return <Loader></Loader>
 
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Add Task", href: "/add-task" },
     { name: "Browse Tasks", href: "/browse-tasks" },
-    { name: "My Posted Tasks", href: "/my-posted-tasks" },
+    { name: "My Posted Tasks", href: `/my-posted-tasks/${user?.email}` },
   ];
 
   const navLinkClass = ({ isActive }) =>

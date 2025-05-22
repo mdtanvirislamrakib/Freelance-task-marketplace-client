@@ -56,7 +56,9 @@ export const router = createBrowserRouter([
           </PrivetRoute>
         },
         {
-          path: "/my-posted-tasks",
+          path: "/my-posted-tasks/:email",
+          loader: ({params}) => fetch(`http://localhost:5000/my-posted-tasks/${params.email}`),
+          hydrateFallbackElement: <Loader></Loader>,
           element: <PrivetRoute>
             <MyPostedTask></MyPostedTask>
           </PrivetRoute>
