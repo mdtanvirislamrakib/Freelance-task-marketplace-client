@@ -1,7 +1,6 @@
 // AddTask.jsx
-import React, { use, useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { use } from 'react';
+
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
@@ -10,9 +9,7 @@ const AddTask = () => {
     const { user } = use(AuthContext)
 
 
-    useEffect(() => {
-        AOS.init({ duration: 1000 });
-    }, []);
+
 
     // add task
     const handleAddTask = e => {
@@ -53,7 +50,7 @@ const AddTask = () => {
     return (
         <div
             className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800 p-4">
-            <div className="w-full max-w-lg bg-gray-800 rounded-xl shadow-2xl p-8" data-aos="fade-up">
+            <div className="w-full max-w-lg bg-gray-800 rounded-xl shadow-2xl p-8" >
                 <h2 className="text-2xl font-bold text-center text-white mb-6">Add New Task</h2>
                 <form onSubmit={handleAddTask} className="space-y-4">
 

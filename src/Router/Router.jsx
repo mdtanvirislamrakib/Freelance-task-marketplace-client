@@ -13,6 +13,7 @@ import BrowseTask from "../Pages/BrowseTask";
 import MyPostedTask from "../Pages/MyPostedTask";
 import Loader from "../Components/Loader";
 import TaskDetails from "../Components/TaskDetails";
+import UpdateTask from "../Pages/UpdateTask";
 
 
 export const router = createBrowserRouter([
@@ -62,6 +63,12 @@ export const router = createBrowserRouter([
           element: <PrivetRoute>
             <MyPostedTask></MyPostedTask>
           </PrivetRoute>
+        },
+        {
+          path: "/update-task/:id",
+          loader: ({params}) => fetch(`http://localhost:5000/task-details/${params.id}`),
+          hydrateFallbackElement: <Loader></Loader>,
+          Component: UpdateTask
         }
     ]
   },

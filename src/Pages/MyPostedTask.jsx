@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaEdit, FaTrashAlt, FaRegHandshake, FaRegLightbulb } from 'react-icons/fa';
-import { useLoaderData, useNavigate, useParams } from 'react-router';
+import { Link, useLoaderData, useNavigate, useParams } from 'react-router';
 import Swal from 'sweetalert2';
 
 const MyPostedTask = () => {
@@ -13,6 +13,9 @@ const MyPostedTask = () => {
     const redirectAddTask = () => {
         navigate("/add-task")
     }
+
+
+
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -40,7 +43,7 @@ const MyPostedTask = () => {
                                 icon: "success"
                             });
                         }
-                        
+
                     })
 
 
@@ -56,7 +59,7 @@ const MyPostedTask = () => {
 
                 {/* Responsive Table Wrapper */}
                 {
-                    myTask.length < 1 ? <div className="text-center py-16 px-6 bg-gray-800/50 rounded-xl shadow-lg border border-gray-700">
+                    myTask?.length < 1 ? <div className="text-center py-16 px-6 bg-gray-800/50 rounded-xl shadow-lg border border-gray-700">
                         <div className="flex justify-center mb-4">
                             <FaRegLightbulb className="text-gray-600 text-5xl" />
                         </div>
@@ -108,8 +111,11 @@ const MyPostedTask = () => {
                                                 className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white rounded-md transition"
                                                 aria-label="Update task"
                                             >
-                                                <FaEdit />
-                                                Update
+                                                <Link to={`/update-task/${task._id}`} className='inline-flex items-center gap-2'>
+                                                    <FaEdit />
+                                                    Update
+                                                </Link>
+
                                             </button>
                                             <button
                                                 onClick={() => handleDelete(task._id)}
