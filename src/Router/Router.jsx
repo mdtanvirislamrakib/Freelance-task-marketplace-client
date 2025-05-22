@@ -42,6 +42,8 @@ export const router = createBrowserRouter([
         },
         {
           path: '/browse-tasks',
+          loader: () => fetch('http://localhost:5000/browse-collection'),
+          hydrateFallbackElement: <Loader></Loader>,
           element: <BrowseTask></BrowseTask>,
         },
         {

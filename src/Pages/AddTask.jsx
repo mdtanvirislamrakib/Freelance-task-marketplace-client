@@ -85,7 +85,9 @@ const AddTask = () => {
                             <option value="Web Development">Web Development</option>
                             <option value="Design">Design</option>
                             <option value="Writing">Writing</option>
-                            <option value="Marketing">Marketing</option>
+                            <option value="Marketing">Digital Marketing</option>
+                            <option value="Marketing">App Development</option>
+                            <option value="Marketing">Video Editing</option>
                             <option value="Other">Other</option>
                         </select>
                     </div>
