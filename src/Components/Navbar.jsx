@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { NavLink } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -101,6 +102,7 @@ const Navbar = () => {
                       src={user?.photoURL}
                       alt="User Avatar"
                       className="object-cover"
+                      data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName}
                     />
                   </div>
                 </div>
@@ -214,6 +216,7 @@ const Navbar = () => {
           )}
         </div>
       )}
+      <Tooltip id="my-tooltip" />
     </nav>
   );
 };
