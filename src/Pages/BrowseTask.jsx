@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaRegEye } from 'react-icons/fa';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 
 
 const BrowseTask = () => {
@@ -41,11 +41,14 @@ const BrowseTask = () => {
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap text-right">
                                         <button
-                                            className="flex items-center gap-2 ml-auto px-4 py-2 text-sm font-medium text-blue-300 bg-blue-700/30 hover:bg-blue-700/50 rounded-md transition-colors"
+                                            className=" ml-auto px-4 py-2 text-sm font-medium text-blue-300 bg-blue-700/30 hover:bg-blue-700/50 rounded-md transition-colors"
                                             aria-label="View details"
                                         >
-                                            <FaRegEye />
-                                            <span>Details</span>
+                                            <Link to={`/task-details/${task._id}`} className='flex items-center gap-2'>
+                                                <FaRegEye />
+                                                <span>Details</span>
+                                            </Link>
+
                                         </button>
                                     </td>
                                 </tr>
