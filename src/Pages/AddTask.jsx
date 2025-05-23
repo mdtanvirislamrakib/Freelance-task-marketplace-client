@@ -20,7 +20,7 @@ const AddTask = () => {
         const bid = {...newTask, bids:[]}
 
         // send task data to DB
-        fetch("http://localhost:5000/tasks", {
+        fetch("https://freelance-task-marketplace-server-peach.vercel.app/tasks", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

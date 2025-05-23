@@ -19,7 +19,7 @@ const UpdateTask = () => {
 
         // send updated data to Db
 
-        fetch(`http://localhost:5000/update-task/${_id}`, {
+        fetch(`https://freelance-task-marketplace-server-peach.vercel.app/update-task/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

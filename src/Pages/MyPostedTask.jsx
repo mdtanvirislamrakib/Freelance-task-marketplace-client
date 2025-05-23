@@ -23,7 +23,7 @@ const MyPostedTask = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${id}`, {
+                fetch(`https://freelance-task-marketplace-server-peach.vercel.app/users/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

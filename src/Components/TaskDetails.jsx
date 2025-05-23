@@ -20,7 +20,7 @@ const TaskDetails = () => {
   const handleBidClick = () => {
     const updatedBids = [...(task.bids || []), user.email];
 
-    fetch(`http://localhost:5000/update-task/${task._id}`, {
+    fetch(`https://freelance-task-marketplace-server-peach.vercel.app/update-task/${task._id}`, {
       method: "PATCH",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ bids: updatedBids }),
