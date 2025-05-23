@@ -47,26 +47,3 @@ TaskHub is a full-stack platform designed to connect clients with freelancers fo
 
 ---
 
-## Project Structure
-
-├── public # Public assets (images, favicon)
-├── src # Source code
-│ ├── components # Reusable UI components (Navbar, Footer, TaskCard, etc.)
-│ ├── pages # Page components (Home, Login, Signup, AddTask, BrowseTasks, etc.)
-│ ├── context # Context API for global state management (Auth, Theme, etc.)
-│ ├── hooks # Custom React hooks
-│ ├── utils # Utility functions (validation, API calls)
-│ ├── assets # Styles, images, icons
-│ ├── App.jsx # Main app component with routing
-│ └── index.jsx # React DOM render and app entry point
-├── tailwind.config.js # TailwindCSS configuration
-└── package.json # Frontend dependencies and scripts
-
-/server # Backend API server
-├── controllers # Route controllers (task management, auth, bids)
-├── models # Mongoose schemas (User, Task, Bids)
-├── routes # Express route definitions
-├── middleware # Middleware (auth validation, error handling)
-├── config # Config files (database connection, environment variables)
-├── app.js # Express app setup
-└── server.js # Server entry point and listener
