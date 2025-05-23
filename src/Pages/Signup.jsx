@@ -63,7 +63,7 @@ const Signup = () => {
 
       })
       .catch(error => {
-        console.log(error.message);
+        toast.error(`${error.message}`)
 
       })
   }
@@ -71,12 +71,11 @@ const Signup = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then(result => {
-        console.log(result.user);
         navigate("/");
-        toast.success('Successfully SignUp!')
+        toast.success(`${result.user.displayName} Successfully SignUp!`)
       })
       .catch(error => {
-        console.log(error.message);
+        toast.error(`${error.message}`)
       })
   }
 

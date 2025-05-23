@@ -31,7 +31,6 @@ const UpdateTask = () => {
                 if (data.matchedCount) {
                     toast.success('Successfully Update Task!')
                 }
-                console.log('updated Data', data);
             })
         //
 

@@ -10,7 +10,7 @@ const Footer = () => {
 
           {/* Brand Column */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">TaskMarket</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">TaskHub</h2>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Connect with top freelancers and complete your projects faster than ever.
             </p>

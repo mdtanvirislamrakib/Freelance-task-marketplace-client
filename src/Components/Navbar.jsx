@@ -10,7 +10,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropDown, setDropDown] = useState(false);
   const { user, logOut } = use(AuthContext);
-  
+
 
 
   const navLinks = [
@@ -30,7 +30,6 @@ const Navbar = () => {
 
   const showDropdown = () => {
     setDropDown(!dropDown)
-    console.log(dropDown);
   }
 
   const handleLogOut = () => {
@@ -204,12 +203,25 @@ const Navbar = () => {
 
           {user && (
             <div className="space-y-2">
-              <div className="font-semibold text-center">
-                {user?.displayName || "User"}
+              <div className="flex gap-2 items-center">
+                <div className="avatar cursor-pointer">
+                  <div className="w-6 rounded-full ring-2 ring-indigo-500 ring-offset-2 transition-transform duration-300 hover:ring-offset-base-100 hover:scale-105">
+                    <img
+                      onClick={showDropdown}
+                      src={user?.photoURL}
+                      alt="User Avatar"
+                      className="object-cover"
+                      data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName}
+                    />
+                  </div>
+                </div>
+                <div className="font-semibold text-center text-lg">
+                  {user?.displayName || "User"}
+                </div>
               </div>
+
               <button
                 onClick={() => {
-                  console.log("Logout clicked");
                 }}
                 className="w-full text-left text-red-400 hover:text-red-300 px-2 py-1"
               >

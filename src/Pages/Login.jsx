@@ -17,9 +17,8 @@ const Login = () => {
     const password = form.password.value;
     login(email, password)
     .then(result => {
-      console.log(result.user);
       navigate("/");
-      toast.success('Successfully Login!')
+      toast.success(`${result.user.displayName} Successfully Login!`)
     })
     .catch(error => {
       toast.error(`${error.message}`)
@@ -29,9 +28,8 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin()
     .then(result => {
-      console.log(result.user);
       navigate("/");
-      toast.success('Successfully Login!')
+      toast.success(`${result.user.displayName} Successfully Login!`)
     })
     .catch(error => {
       toast.error(`${error.message}`)

@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
         },
         {
           path: '/browse-tasks',
-          loader: () => fetch('https://freelance-task-marketplace-server-peach.vercel.app/tasks'),
+          loader: () => fetch('https://freelance-task-marketplace-server-peach.vercel.app/users'),
           hydrateFallbackElement: <Loader></Loader>,
           element: <BrowseTask></BrowseTask>,
         },

@@ -7,7 +7,6 @@ import { useLoaderData } from 'react-router';
 
 const Home = () => {
     const featuredTaskData = useLoaderData();
-    console.log(featuredTaskData);
 
 
     return (

@@ -5,7 +5,6 @@ import { Link, useLoaderData } from 'react-router';
 
 const BrowseTask = () => {
     const browseTask = useLoaderData()
-    console.log(browseTask);
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 py-10 px-4">
             <div className="max-w-6xl mx-auto">
