@@ -1,30 +1,53 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay, EffectFade, Parallax } from "swiper/modules";
+import {
+  Pagination,
+  Autoplay,
+  EffectFade,
+  Parallax,
+} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import heroVideo1 from "../assets/hero-slider.mp4";
+import heroVideo2 from "../assets/hero-slider.mp4"; // You can replace with real video
+import heroVideo3 from "../assets/hero-slider.mp4";
+import heroVideo4 from "../assets/hero-slider.mp4";
 
 // Typewriter for title
 import { Typewriter } from "react-simple-typewriter";
 
 // Icons
-import { FaSearch, FaLightbulb, FaCode, FaChartLine, FaUserTie } from "react-icons/fa";
+import {
+  FaSearch,
+  FaLightbulb,
+  FaCode,
+  FaChartLine,
+  FaUserTie,
+} from "react-icons/fa";
 
 const slides = [
   {
     title: ["Post Your Task", "Hire Top Talent", "Get Work Done Fast"],
     subtitle:
       "Connect with professionals who deliver results you can trust.",
-    video:
-      "https://fiverr-res.cloudinary.com/video/upload/v1/video-attachments/generic_asset/asset/18ad23debdc5ce914d67939eceb5fc27-1738830703211/Desktop%20Header%20new%20version ",
+    video: heroVideo1,
   },
   {
     title: ["Hire Talent", "Discover Freelancers", "Scale Your Business"],
     subtitle:
       "Verified experts ready to take your business to the next level.",
-    video:
-      "https://fiverr-res.cloudinary.com/video/upload/v1/video-attachments/generic_asset/asset/18ad23debdc5ce914d67939eceb5fc27-1738830703211/Desktop%20Header%20new%20version ",
+    video: heroVideo2,
+  },
+  {
+    title: ["Find Experts", "Boost Productivity", "Work Smarter"],
+    subtitle: "Freelancers across all industries waiting for your task.",
+    video: heroVideo3,
+  },
+  {
+    title: ["Launch Projects", "Manage Tasks", "Achieve Goals"],
+    subtitle: "A platform that makes hiring and working easy for everyone.",
+    video: heroVideo4,
   },
 ];
 
@@ -57,6 +80,7 @@ const HeroSlider = () => {
                 muted
                 loop
                 playsInline
+                aria-label="Background video"
                 className="absolute inset-0 w-full h-full object-cover z-0 opacity-50"
               >
                 <source src={slide.video} type="video/mp4" />
@@ -80,7 +104,7 @@ const HeroSlider = () => {
                         loop={0}
                         cursor
                         cursorStyle="_"
-                        typeSpeed={80}
+                        typeSpeed={60}
                         deleteSpeed={50}
                       />
                     </h1>
@@ -123,7 +147,8 @@ const HeroSlider = () => {
 
                     {/* Search Helper Text */}
                     <p className="text-sm text-gray-400 mt-2">
-                      Try: <span className="italic">"hire a logo designer"</span>,{" "}
+                      Try:{" "}
+                      <span className="italic">"hire a logo designer"</span>,{" "}
                       <span className="italic">"get a website built"</span>, or{" "}
                       <span className="italic">"find a digital marketer"</span>
                     </p>
