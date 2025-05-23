@@ -9,10 +9,9 @@ import Loader from "./Loader";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropDown, setDropDown] = useState(false);
-  const { user, logOut, loading } = use(AuthContext);
+  const { user, logOut } = use(AuthContext);
   
 
-  if(loading) return <Loader></Loader>
 
   const navLinks = [
     { name: "Home", href: "/" },
