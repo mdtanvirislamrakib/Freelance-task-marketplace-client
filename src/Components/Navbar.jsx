@@ -4,13 +4,18 @@ import { NavLink } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { Tooltip } from 'react-tooltip';
-import Loader from "./Loader";
+import { MdSunny } from "react-icons/md";
+import { FaMoon } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropDown, setDropDown] = useState(false);
   const { user, logOut } = use(AuthContext);
+  const [mode, setMode] = useState(true);
 
+  const handleMode = () => {
+    setMode(!mode);
+  }
 
 
   const navLinks = [
@@ -77,6 +82,13 @@ const Navbar = () => {
 
           {/* User / Auth Section - Right */}
           <div className="flex items-center space-x-4">
+            <div>
+              <button onClick={handleMode} className="cursor-pointer">
+                {
+                  mode ? <MdSunny size={30} /> : <FaMoon size={30} />
+                }
+              </button>
+            </div>
             {!user && (
               <>
                 <NavLink
