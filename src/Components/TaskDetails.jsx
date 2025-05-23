@@ -1,36 +1,54 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useLoaderData, useNavigate } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const TaskDetails = () => {
-  const task = useLoaderData();
+  const { user } = useContext(AuthContext);
+  const loadedTask = useLoaderData();
   const navigate = useNavigate();
 
-  // Initial bid count from task data or fallback to 0
-  const initialBidCount = parseInt(task.bidsCount, 10) || 0;
-  const [bidsCount, setBidsCount] = useState(initialBidCount);
+  const [task, setTask] = useState(loadedTask);
 
-  const backtoReverse = () => {
+
+
+
+  const backToBrowse = () => {
     navigate('/browse-tasks');
   };
 
   const handleBidClick = () => {
-    setBidsCount((prev) => prev + 1);
+    const updatedBids = [...(task.bids || []), user.email];
+
+    fetch(`http://localhost:5000/update-task/${task._id}`, {
+      method: "PATCH",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ bids: updatedBids }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.modifiedCount > 0 || data.acknowledged) {
+          const newTask = { ...task, bids: updatedBids };
+          setTask(newTask);
+        }
+      })
+      .catch(err => console.error('Error updating bids:', err));
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        {/* Top Bid Info */}
+
+        {/* Top Info */}
         <div className="mb-6 text-center">
           <p className="text-blue-300 text-sm">
-            You bid for <span className="font-semibold text-white">{bidsCount}</span> opportunities
+            You bid for <span className="font-semibold text-white">{task?.bids?.length || 0}  </span>opportunities
           </p>
         </div>
 
         {/* Back Button */}
         <button
-          onClick={backtoReverse}
+          onClick={backToBrowse}
           className="flex cursor-pointer items-center gap-2 text-blue-400 hover:text-blue-300 transition mb-6"
         >
           <FaArrowLeft />
@@ -68,17 +86,6 @@ const TaskDetails = () => {
             </div>
           </div>
 
-          {/* Bids Section (Clickable) */}
-          <div className="mt-8 pt-6 border-t border-gray-700">
-            <p className="text-gray-400 text-sm">Total Bids</p>
-            <button
-              onClick={() => navigate(`/task/${task.id}/bids`)}
-              className="text-blue-400 font-medium hover:underline flex items-center gap-2"
-            >
-              {task.totalBids || 0} bid{task.totalBids !== 1 ? 's' : ''}
-            </button>
-          </div>
-
           {/* Client Email */}
           <div className="mt-4">
             <p className="text-gray-400 text-sm">Client Email</p>
@@ -91,7 +98,7 @@ const TaskDetails = () => {
               onClick={handleBidClick}
               className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold rounded-lg shadow-md transition transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              Bids Now
+              Bid Now
             </button>
           </div>
         </div>

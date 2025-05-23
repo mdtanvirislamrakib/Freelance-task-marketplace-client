@@ -130,7 +130,7 @@ const MyPostedTask = () => {
                                                 aria-label="View bids"
                                             >
                                                 <FaRegHandshake />
-                                                Bids
+                                                {task?.bids?.length} Bids
                                             </button>
                                         </td>
                                     </tr>

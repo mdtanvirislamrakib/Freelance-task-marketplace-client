@@ -17,7 +17,7 @@ const AddTask = () => {
         const form = e.target;
         const formData = new FormData(form)
         const newTask = Object.fromEntries(formData.entries())
-        console.log(newTask);
+        const bid = {...newTask, bids:[]}
 
         // send task data to DB
         fetch("http://localhost:5000/tasks", {
@@ -25,7 +25,7 @@ const AddTask = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newTask)
+            body: JSON.stringify(bid)
         })
             .then(res => res.json())
             .then(data => {

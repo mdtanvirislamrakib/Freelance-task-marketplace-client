@@ -70,11 +70,8 @@ const FaqSection = () => {
             Frequently Asked Questions
           </h2>
           <p className="mt-4 text-lg text-gray-300 max-w-xl mx-auto">
-            Everything you need to know before getting started. Can’t find what you’re looking for?{" "}
-            <a href="/contact" className="text-indigo-400 underline hover:text-indigo-300 transition-colors">
-              Contact us
-            </a>
-            .
+            Everything you need to know before getting started. Can’t find what you’re looking for?
+            
           </p>
         </div>
 
