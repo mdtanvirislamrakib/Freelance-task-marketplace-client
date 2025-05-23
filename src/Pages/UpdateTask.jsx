@@ -10,7 +10,6 @@ const UpdateTask = () => {
 
     const { _id } = updateTask;
 
-
     const handleUpdateTask = e => {
         e.preventDefault();
         const form = e.target;
@@ -36,18 +35,17 @@ const UpdateTask = () => {
 
     }
 
-
     return (
         <div>
             <div
-                className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800 p-4">
-                <div className="w-full max-w-lg bg-gray-800 rounded-xl shadow-2xl p-8" >
-                    <h2 className="text-2xl font-bold text-center text-white mb-6">Update Task</h2>
+                className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-200 to-gray-100 dark:from-gray-900 dark:to-gray-800 p-4">
+                <div className="w-full max-w-lg bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-8" >
+                    <h2 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-6">Update Task</h2>
                     <form onSubmit={handleUpdateTask} className="space-y-4">
 
                         {/* Task Title */}
                         <div>
-                            <label htmlFor="task-title" className="block text-sm font-medium text-gray-300">Task Title</label>
+                            <label htmlFor="task-title" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Task Title</label>
                             <input
                                 type="text"
                                 defaultValue={updateTask['task-title']}
@@ -55,19 +53,19 @@ const UpdateTask = () => {
                                 name="task-title"
                                 placeholder="Enter task title"
                                 required
-                                className="mt-1 block w-full px-4 py-3 border border-gray-600 bg-gray-700 text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 appearance-none outline-none transition-all"
+                                className="mt-1 block w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 appearance-none outline-none transition-all"
                             />
                         </div>
 
                         {/* Category */}
                         <div>
-                            <label htmlFor="category" className="block text-sm font-medium text-gray-300">Category</label>
+                            <label htmlFor="category" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Category</label>
                             <select
                                 id="category"
                                 name="category"
                                 defaultValue={updateTask.category}
                                 required
-                                className="mt-1 block w-full px-4 py-3 bg-gray-700 border border-gray-600 text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 appearance-none outline-none"
+                                className="mt-1 block w-full px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 appearance-none outline-none"
                             >
                                 <option value="">Select Category</option>
                                 <option value="Web Development">Web Development</option>
@@ -82,7 +80,7 @@ const UpdateTask = () => {
 
                         {/* Description */}
                         <div>
-                            <label htmlFor="description" className="block text-sm font-medium text-gray-300">Description</label>
+                            <label htmlFor="description" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
                             <textarea
                                 id="description"
                                 name="description"
@@ -90,26 +88,26 @@ const UpdateTask = () => {
                                 rows="4"
                                 placeholder="Describe what needs to be done..."
                                 required
-                                className="mt-1 block w-full px-4 py-3 border border-gray-600 bg-gray-700 text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 resize-none outline-none"
+                                className="mt-1 block w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 resize-none outline-none"
                             ></textarea>
                         </div>
 
                         {/* Deadline */}
                         <div>
-                            <label htmlFor="deadline" className="block text-sm font-medium text-gray-300">Deadline</label>
+                            <label htmlFor="deadline" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Deadline</label>
                             <input
                                 type="date"
                                 id="deadline"
                                 name="deadline"
                                 defaultValue={updateTask.deadline}
                                 required
-                                className="mt-1 block w-full px-4 py-3 border border-gray-600 bg-gray-700 text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 appearance-none outline-none"
+                                className="mt-1 block w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 appearance-none outline-none"
                             />
                         </div>
 
                         {/* Budget */}
                         <div>
-                            <label htmlFor="budget" className="block text-sm font-medium text-gray-300">Budget ($)</label>
+                            <label htmlFor="budget" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Budget ($)</label>
                             <input
                                 type="number"
                                 id="budget"
@@ -119,33 +117,33 @@ const UpdateTask = () => {
                                 step="0.01"
                                 placeholder="Enter budget amount"
                                 required
-                                className="mt-1 block w-full px-4 py-3 border border-gray-600 bg-gray-700 text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 appearance-none outline-none "
+                                className="mt-1 block w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 appearance-none outline-none"
                             />
                         </div>
 
                         {/* User Email (Read Only) */}
                         <div>
-                            <label htmlFor="user-email" className="block text-sm font-medium text-gray-300">User Email</label>
+                            <label htmlFor="user-email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">User Email</label>
                             <input
                                 type="email"
                                 id="user-email"
                                 name="user-email"
                                 value={user?.email}
                                 readOnly
-                                className="mt-1 block w-full px-4 py-3 bg-gray-700 border border-gray-600 text-gray-400 rounded-md shadow-sm cursor-not-allowed"
+                                className="mt-1 block w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-400 rounded-md shadow-sm cursor-not-allowed"
                             />
                         </div>
 
                         {/* User Name (Read Only) */}
                         <div>
-                            <label htmlFor="user-name" className="block text-sm font-medium text-gray-300">User Name</label>
+                            <label htmlFor="user-name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">User Name</label>
                             <input
                                 type="text"
                                 id="user-name"
                                 name="user-name"
                                 value={user?.displayName}
                                 readOnly
-                                className="mt-1 block w-full px-4 py-3 bg-gray-700 border border-gray-600 text-gray-400 rounded-md shadow-sm cursor-not-allowed"
+                                className="mt-1 block w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-400 rounded-md shadow-sm cursor-not-allowed"
                             />
                         </div>
 

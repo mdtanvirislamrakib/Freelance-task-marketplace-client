@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Import icons from React Icons (using Fa = Font Awesome style)
 import {
   FaLaptopCode,
   FaPalette,
@@ -52,7 +51,6 @@ const PopularCategories = () => {
   const categoryRefs = useRef([]);
 
   useEffect(() => {
-    // Animate each category on scroll
     categoryRefs.current.forEach((ref, index) => {
       gsap.fromTo(
         ref,
@@ -75,14 +73,14 @@ const PopularCategories = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 text-white"
+      className="py-20 bg-white text-gray-900 dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-800 dark:text-white transition-colors duration-500"
     >
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
             Popular Categories
           </h2>
-          <p className="mt-4 text-lg text-gray-300 max-w-xl mx-auto">
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
             Browse top-rated freelance services in popular categories.
           </p>
         </div>
@@ -92,7 +90,7 @@ const PopularCategories = () => {
             <div
               key={index}
               ref={(el) => (categoryRefs.current[index] = el)}
-              className="group p-6 rounded-xl bg-gray-800/70 backdrop-blur-sm hover:bg-gray-700/90 border border-gray-700 hover:border-indigo-500 transition-all duration-300 shadow-lg hover:shadow-indigo-500/20 cursor-pointer transform hover:-translate-y-2"
+              className="group p-6 rounded-xl bg-gray-100 dark:bg-gray-800/70 backdrop-blur-sm hover:bg-gray-200 dark:hover:bg-gray-700/90 border border-gray-200 dark:border-gray-700 hover:border-indigo-500 transition-all duration-300 shadow-lg hover:shadow-indigo-500/20 cursor-pointer transform hover:-translate-y-2"
             >
               <div className="flex items-center space-x-4">
                 <div className="p-4 rounded-full bg-indigo-600 group-hover:bg-indigo-500 text-white transition-colors duration-300 flex-shrink-0">
@@ -100,7 +98,9 @@ const PopularCategories = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">{category.title}</h3>
-                  <p className="text-sm text-gray-400 mt-1">{category.count}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                    {category.count}
+                  </p>
                 </div>
               </div>
             </div>

@@ -1,4 +1,3 @@
-
 import { use } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { FcGoogle } from "react-icons/fc";
@@ -26,28 +25,27 @@ const Signup = () => {
       return Swal.fire({
         icon: "error",
         title: "Invalid Password",
-        text: "Password Must be 6 charecter",
+        text: "Password Must be 6 characters",
       });
     } else if (smallLetterValidation.test(password) === false) {
       return Swal.fire({
         icon: "error",
         title: "Invalid Password",
-        text: "password must have a small letter!",
+        text: "Password must have a small letter!",
       });
     } else if (capitalLetterValidation.test(password) === false) {
       return Swal.fire({
         icon: "error",
         title: "Invalid Password",
-        text: "Password must be have an UpperCase Letter!",
+        text: "Password must have an uppercase letter!",
       });
     } else if (digitValidation.test(password) === false) {
       return Swal.fire({
         icon: "error",
         title: "Invalid Password",
-        text: "Password must be have a number!",
+        text: "Password must have a number!",
       });
     }
-
 
     SignUpUser(email, password)
       .then(result => {
@@ -80,25 +78,30 @@ const Signup = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black px-4 sm:px-6 lg:px-8 py-10 lg:py-20">
-      <div className="max-w-md w-full space-y-8 bg-gray-800 p-10 rounded-xl shadow-2xl">
+    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-black px-4 sm:px-6 lg:px-8 py-10 lg:py-20">
+      <div className="max-w-md w-full space-y-8 bg-gray-50 dark:bg-gray-800 p-10 rounded-xl shadow-2xl">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
             Create an Account
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-300">
+          <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-300">
             Join our freelance marketplace today
           </p>
         </div>
         <div>
-          <button onClick={handleGoogleLogin} className='w-full flex items-center justify-center gap-5 font-bold px-5 py-3 rounded-sm border text-white cursor-pointer hover:bg-gray-900 transition-all '><FcGoogle size={25} /> Continue With Google</button>
+          <button 
+            onClick={handleGoogleLogin} 
+            className="w-full flex items-center justify-center gap-5 font-bold px-5 py-3 rounded-sm border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-900 transition-all"
+          >
+            <FcGoogle size={25} /> Continue With Google
+          </button>
         </div>
 
         <form onSubmit={handleSignUp} className="mt-8 space-y-6">
 
           {/* Name */}
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Full Name
             </label>
             <input
@@ -107,14 +110,14 @@ const Signup = () => {
               type="text"
               autoComplete="name"
               required
-              className="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-600 placeholder-gray-400 text-white bg-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-white bg-white dark:bg-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               placeholder="John Doe"
             />
           </div>
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Email Address
             </label>
             <input
@@ -123,14 +126,14 @@ const Signup = () => {
               type="email"
               autoComplete="email"
               required
-              className="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-600 placeholder-gray-400 text-white bg-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-white bg-white dark:bg-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               placeholder="you@example.com"
             />
           </div>
 
           {/* Password */}
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-1">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Password
             </label>
             <input
@@ -139,21 +142,21 @@ const Signup = () => {
               type="password"
               autoComplete="new-password"
               required
-              className="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-600 placeholder-gray-400 text-white bg-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-white bg-white dark:bg-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               placeholder="••••••••"
             />
           </div>
 
           {/* Profile Photo URL */}
           <div>
-            <label htmlFor="photoURL" className="block text-sm font-medium text-gray-300 mb-1">
+            <label htmlFor="photoURL" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Profile Picture URL
             </label>
             <input
               id="photoURL"
               name="photoURL"
               type="url"
-              className="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-600 placeholder-gray-400 text-white bg-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-white bg-white dark:bg-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               placeholder="https://example.com/profile.jpg "
             />
           </div>
@@ -168,12 +171,10 @@ const Signup = () => {
           </div>
         </form>
 
-
-
         <div className="text-center">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
             Already have an account?{' '}
-            <Link to="/login" className="font-medium text-indigo-400 hover:text-indigo-300">
+            <Link to="/login" className="font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300">
               Sign in
             </Link>
           </p>

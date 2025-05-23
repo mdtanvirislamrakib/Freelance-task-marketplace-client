@@ -10,9 +10,6 @@ const TaskDetails = () => {
 
   const [task, setTask] = useState(loadedTask);
 
-
-
-
   const backToBrowse = () => {
     navigate('/browse-tasks');
   };
@@ -36,60 +33,60 @@ const TaskDetails = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4 transition-colors duration-500">
       <div className="max-w-4xl mx-auto">
 
         {/* Top Info */}
         <div className="mb-6 text-center">
-          <p className="text-blue-300 text-sm">
-            You bid for <span className="font-semibold text-white">{task?.bids?.length || 0}  </span>opportunities
+          <p className="text-blue-700 dark:text-blue-300 text-sm transition-colors duration-300">
+            You bid for <span className="font-semibold text-gray-900 dark:text-white transition-colors duration-300">{task?.bids?.length || 0}</span> opportunities
           </p>
         </div>
 
         {/* Back Button */}
         <button
           onClick={backToBrowse}
-          className="flex cursor-pointer items-center gap-2 text-blue-400 hover:text-blue-300 transition mb-6"
+          className="flex cursor-pointer items-center gap-2 text-blue-700 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition mb-6"
         >
           <FaArrowLeft />
           <span>Back</span>
         </button>
 
         {/* Task Details Card */}
-        <div className="bg-gray-800/70 backdrop-blur-sm rounded-xl shadow-2xl p-8 border border-gray-700">
-          <h2 className="text-3xl font-bold text-white mb-2">{task['task-title']}</h2>
-          <p className="text-gray-400 mb-6">
-            Posted by <span className="font-medium text-white">{task['user-name']}</span>
+        <div className="bg-gray-200/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl shadow-2xl p-8 border border-gray-300 dark:border-gray-700 transition-colors duration-500">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">{task['task-title']}</h2>
+          <p className="text-gray-700 dark:text-gray-400 mb-6 transition-colors duration-300">
+            Posted by <span className="font-medium text-gray-900 dark:text-white transition-colors duration-300">{task['user-name']}</span>
           </p>
 
           <div className="mb-6">
-            <span className="inline-block px-4 py-1 text-xs font-semibold bg-blue-900/50 text-blue-200 rounded-full border border-blue-700">
+            <span className="inline-block px-4 py-1 text-xs font-semibold bg-blue-200 dark:bg-blue-900/50 text-blue-900 dark:text-blue-200 rounded-full border border-blue-700 transition-colors duration-300">
               {task.category}
             </span>
           </div>
 
           <div className="space-y-4 mb-8">
-            <h3 className="text-lg font-semibold text-white">Description</h3>
-            <p className="text-gray-300 leading-relaxed">{task.description}</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white transition-colors duration-300">Description</h3>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed transition-colors duration-300">{task.description}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <p className="text-gray-400 text-sm">Deadline</p>
-              <p className="text-white font-medium">
+              <p className="text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">Deadline</p>
+              <p className="text-gray-900 dark:text-white font-medium transition-colors duration-300">
                 {new Date(task.deadline).toDateString()}
               </p>
             </div>
             <div>
-              <p className="text-gray-400 text-sm">Budget</p>
-              <p className="text-green-400 font-bold text-lg">$ {task.budget}</p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">Budget</p>
+              <p className="text-green-700 dark:text-green-400 font-bold text-lg transition-colors duration-300">$ {task.budget}</p>
             </div>
           </div>
 
           {/* Client Email */}
           <div className="mt-4">
-            <p className="text-gray-400 text-sm">Client Email</p>
-            <p className="text-blue-400 font-medium">{task['user-email']}</p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">Client Email</p>
+            <p className="text-blue-700 dark:text-blue-400 font-medium transition-colors duration-300">{task['user-email']}</p>
           </div>
 
           {/* Bid Now Button */}

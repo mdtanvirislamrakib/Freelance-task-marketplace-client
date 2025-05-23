@@ -41,7 +41,6 @@ const FaqSection = () => {
   };
 
   useEffect(() => {
-    // Animate in on scroll
     gsap.fromTo(
       sectionRef.current.querySelectorAll(".faq-item"),
       { y: 40, opacity: 0 },
@@ -62,16 +61,15 @@ const FaqSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white"
+      className="py-20 bg-white text-gray-900 dark:bg-gradient-to-b dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 dark:text-white transition-colors duration-500"
     >
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="mt-4 text-lg text-gray-300 max-w-xl mx-auto">
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
             Everything you need to know before getting started. Can’t find what you’re looking for?
-            
           </p>
         </div>
 
@@ -79,14 +77,16 @@ const FaqSection = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="faq-item bg-gray-800/70 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 shadow-lg hover:shadow-indigo-500/10 transition-shadow duration-300"
+              className="faq-item bg-gray-100 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-indigo-500/10 transition-shadow duration-300"
             >
               <button
                 className="w-full flex justify-between items-center p-6 text-left focus:outline-none"
                 onClick={() => toggleAccordion(index)}
                 aria-expanded={openIndex === index}
               >
-                <span className="text-lg md:text-xl font-semibold">{faq.question}</span>
+                <span className="text-lg md:text-xl font-semibold">
+                  {faq.question}
+                </span>
                 <span
                   className={`transform transition-transform duration-300 ${
                     openIndex === index ? "rotate-180" : ""
@@ -94,7 +94,7 @@ const FaqSection = () => {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-indigo-400"
+                    className="h-5 w-5 text-indigo-500 dark:text-indigo-400"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -112,7 +112,7 @@ const FaqSection = () => {
                 }`}
                 aria-hidden={openIndex !== index}
               >
-                <div className="px-6 text-gray-300">{faq.answer}</div>
+                <div className="px-6 text-gray-700 dark:text-gray-300">{faq.answer}</div>
               </div>
             </div>
           ))}
