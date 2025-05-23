@@ -1,8 +1,8 @@
 // AddTask.jsx
-import React, { use } from 'react';
+import { use } from 'react';
 
-import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const AddTask = () => {
 
@@ -20,7 +20,7 @@ const AddTask = () => {
         const bid = {...newTask, bids:[]}
 
         // send task data to DB
-        fetch("http://localhost:5000/tasks", {
+        fetch("https://freelance-task-marketplace-server-peach.vercel.app/tasks", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

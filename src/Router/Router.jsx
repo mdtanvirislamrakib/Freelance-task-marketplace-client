@@ -2,18 +2,18 @@
 import {
   createBrowserRouter,
 } from "react-router";
+import Loader from "../Components/Loader";
+import TaskDetails from "../Components/TaskDetails";
 import HomeLayout from "../HomeLayout/HomeLayout";
+import AddTask from "../Pages/AddTask";
+import BrowseTask from "../Pages/BrowseTask";
 import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
-import Signup from "../Pages/Signup";
-import PrivetRoute from "../Provider/PrivetRoute";
-import AddTask from "../Pages/AddTask";
-import BrowseTask from "../Pages/BrowseTask";
 import MyPostedTask from "../Pages/MyPostedTask";
-import Loader from "../Components/Loader";
-import TaskDetails from "../Components/TaskDetails";
+import Signup from "../Pages/Signup";
 import UpdateTask from "../Pages/UpdateTask";
+import PrivetRoute from "../Provider/PrivetRoute";
 
 
 export const router = createBrowserRouter([
@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
     children: [
         {
           index: true,
-          loader: () => fetch('http://localhost:5000/tasks'),
+          loader: () => fetch('https://freelance-task-marketplace-server-peach.vercel.app/tasks'),
           hydrateFallbackElement: <Loader></Loader>,
           Component: Home,
         },
@@ -44,13 +44,13 @@ export const router = createBrowserRouter([
         },
         {
           path: '/browse-tasks',
-          loader: () => fetch('http://localhost:5000/browse-collection'),
+          loader: () => fetch('https://freelance-task-marketplace-server-peach.vercel.app/browse-collection'),
           hydrateFallbackElement: <Loader></Loader>,
           element: <BrowseTask></BrowseTask>,
         },
         {
           path: '/task-details/:id',
-          loader: ({params}) => fetch(`http://localhost:5000/task-details/${params.id}`),
+          loader: ({params}) => fetch(`https://freelance-task-marketplace-server-peach.vercel.app/task-details/${params.id}`),
           hydrateFallbackElement: <Loader></Loader>,
           element: <PrivetRoute>
             <TaskDetails></TaskDetails>
@@ -58,7 +58,7 @@ export const router = createBrowserRouter([
         },
         {
           path: "/my-posted-tasks/:email",
-          loader: ({params}) => fetch(`http://localhost:5000/my-posted-tasks/${params.email}`),
+          loader: ({params}) => fetch(`https://freelance-task-marketplace-server-peach.vercel.app/my-posted-tasks/${params.email}`),
           hydrateFallbackElement: <Loader></Loader>,
           element: <PrivetRoute>
             <MyPostedTask></MyPostedTask>
@@ -66,7 +66,7 @@ export const router = createBrowserRouter([
         },
         {
           path: "/update-task/:id",
-          loader: ({params}) => fetch(`http://localhost:5000/task-details/${params.id}`),
+          loader: ({params}) => fetch(`https://freelance-task-marketplace-server-peach.vercel.app/task-details/${params.id}`),
           hydrateFallbackElement: <Loader></Loader>,
           Component: UpdateTask
         }

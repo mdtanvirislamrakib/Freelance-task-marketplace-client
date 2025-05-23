@@ -1,7 +1,7 @@
-import React, { use } from 'react';
+import { use } from 'react';
+import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
-import toast from 'react-hot-toast';
 
 const UpdateTask = () => {
 
@@ -19,7 +19,7 @@ const UpdateTask = () => {
 
         // send updated data to Db
 
-        fetch(`http://localhost:5000/update-task/${_id}`, {
+        fetch(`https://freelance-task-marketplace-server-peach.vercel.app/update-task/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

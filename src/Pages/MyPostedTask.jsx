@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { FaEdit, FaTrashAlt, FaRegHandshake, FaRegLightbulb } from 'react-icons/fa';
+import { useState } from 'react';
+import { FaEdit, FaRegHandshake, FaRegLightbulb, FaTrashAlt } from 'react-icons/fa';
 import { Link, useLoaderData, useNavigate, useParams } from 'react-router';
 import Swal from 'sweetalert2';
 
@@ -29,7 +29,7 @@ const MyPostedTask = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/users/${id}`, {
+                fetch(`https://freelance-task-marketplace-server-peach.vercel.app/users/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
