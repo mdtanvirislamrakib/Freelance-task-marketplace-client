@@ -1,21 +1,20 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 import errorImage from '../assets/404/404.gif';
-import Navbar from '../Components/Navbar';
-import Footer from '../Components/Footer';
+
 
 const ErrorPage = () => {
   const navigate = useNavigate();
 
   return (
     <>
-      <Navbar />
 
-      <main className="min-h-[80vh] flex flex-col items-center justify-center px-4 py-10 space-y-8">
+
+      <main className="flex flex-col items-center justify-center px-4 py-10 space-y-8">
         <img
           src={errorImage}
           alt="Page not found - 404 error"
-          className="max-w-3xl mx-auto"
+          
         />
         <button
           onClick={() => navigate('/')}
@@ -25,7 +24,6 @@ const ErrorPage = () => {
         </button>
       </main>
 
-      <Footer />
     </>
   );
 };
