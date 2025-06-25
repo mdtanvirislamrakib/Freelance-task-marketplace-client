@@ -4,7 +4,8 @@
 A freelance task marketplace platform connecting clients and freelancers.
 
 🔗 **Live Demo**: [https://freelance-task-matketplace.netlify.app/](https://freelance-task-matketplace.netlify.app/)  
-🔗 **API Server**: [https://freelance-task-marketplace-server-peach.vercel.app/](https://freelance-task-marketplace-server-peach.vercel.app/)
+🔗 **API Server**: [https://freelance-task-marketplace-server-peach.vercel.app/](https://freelance-task-marketplace-server-peach.vercel.app/)   
+
 🔗 **API Code Repo**: [https://github.com/mdtanvirislamrakib/Freelance-task-marketplace-server](https://github.com/mdtanvirislamrakib/Freelance-task-marketplace-server)
 
 ---
