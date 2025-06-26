@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { Tooltip } from 'react-tooltip';
 import { MdSunny } from "react-icons/md";
 import { FaMoon } from "react-icons/fa";
+import {motion} from "framer-motion"
 
 const Navbar = ({ toogleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -123,27 +124,44 @@ const Navbar = ({ toogleTheme }) => {
                 </div>
 
                 {dropDown && (
-                  <div
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
                     onMouseLeave={() => setDropDown(false)}
-                    className="absolute right-0 mt-2 w-56 bg-white text-gray-800 rounded-lg shadow-xl z-50 animate-fade-in border"
+                    className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-xl z-50 border border-gray-200 dark:border-gray-700 overflow-hidden"
                   >
-                    <div className="px-4 py-3 border-b border-gray-200">
-                      <p className="text-sm font-semibold truncate">
-                        {user.displayName || "User Name"}
+                    {/* User Info Section */}
+                    <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700">
+                      <NavLink
+                        to="/dashboard"
+                        className="block text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+                        onClick={() => setDropDown(false)}
+                      >
+                        Go to Dashboard
+                      </NavLink>
+                      <p className="mt-1 text-sm font-semibold truncate">
+                        {user?.displayName || "User Name"}
                       </p>
-                      <p className="text-xs text-gray-500 truncate">
-                        {user.email || "user@example.com"}
+                      <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                        {user?.email || "user@example.com"}
                       </p>
                     </div>
-                    <ul className="py-1 text-sm">
-                      <li>
+
+                    {/* Dropdown Menu Items */}
+                    <ul className="py-1">
+                      <motion.li
+                        whileTap={{ scale: 0.98 }}
+                        className="border-b border-gray-100 dark:border-gray-700 last:border-b-0"
+                      >
                         <button
                           onClick={handleLogOut}
-                          className="flex items-center w-full px-4 py-2 text-sm text-left text-red-600 hover:bg-red-50 transition-colors duration-150"
+                          className="flex items-center w-full px-4 py-3 text-sm text-left text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 transition-colors duration-150"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-4 w-4 mr-2"
+                            className="h-5 w-5 mr-2"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -155,11 +173,11 @@ const Navbar = ({ toogleTheme }) => {
                               d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
                             />
                           </svg>
-                          Log out
+                          Sign Out
                         </button>
-                      </li>
+                      </motion.li>
                     </ul>
-                  </div>
+                  </motion.div>
                 )}
               </div>
             )}
