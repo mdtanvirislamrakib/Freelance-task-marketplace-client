@@ -51,7 +51,7 @@ const BrowseTask = () => {
                     >
                       <Link to={`/task-details/${task._id}`} className="flex items-center gap-2">
                         <FaRegEye />
-                        <span>Details</span>
+                        <span>See More</span>
                       </Link>
                     </button>
                   </td>

@@ -4,6 +4,7 @@ import PopularCategories from '../Components/PopularCategories';
 import FaqSection from '../Components/FaqSection';
 import FeaturedTask from '../Components/FeaturedTask';
 import { useLoaderData } from 'react-router';
+import HowItWorksSection from '../Components/HowItWorksSection';
 
 const Home = () => {
     const featuredTaskData = useLoaderData();
@@ -13,6 +14,9 @@ const Home = () => {
         <div>
             <div>
                 <HeroSlider></HeroSlider>
+            </div>
+            <div>
+                <HowItWorksSection></HowItWorksSection>
             </div>
             <div>
                 
