@@ -42,7 +42,7 @@ const featuredTaskData = useLoaderData();
       {/* Welcome Banner */}
       <div className="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl p-6 text-white">
         <h2 className="text-2xl font-bold mb-2">Welcome back!</h2>
-        <p className="opacity-90">Premium Member • Joined January 2023</p>
+        <p className="opacity-90">Premium Member</p>
       </div>
 
       {/* Stats Cards */}
