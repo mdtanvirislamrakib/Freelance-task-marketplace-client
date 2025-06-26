@@ -62,6 +62,10 @@ const JoinOurCommunity = () => {
     const navigatePostJOb = () => {
         navigate("/add-task")
     }
+
+    const navigateToSignUp = () => {
+        navigate("/signup")
+    }
   return (
     <section className="py-20 bg-gradient-to-br from-indigo-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -172,8 +176,8 @@ const JoinOurCommunity = () => {
               Join thousands of professionals who trust our platform to build their success stories.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-6 py-3 bg-white text-indigo-600 font-medium rounded-full shadow-md hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
-                Sign Up as Freelancer
+              <button onClick={navigateToSignUp} className="px-6 py-3 bg-white text-indigo-600 font-medium rounded-full shadow-md hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                Sign Up
               </button>
               <button onClick={navigatePostJOb} className="px-6 py-3 bg-transparent border-2 border-white text-white font-medium rounded-full hover:bg-white hover:text-indigo-600 transition-all duration-300 transform hover:scale-105 cursor-pointer">
                 Post a Job

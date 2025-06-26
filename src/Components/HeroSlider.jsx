@@ -44,7 +44,8 @@ const slides = [
 
 const HeroSlider = () => {
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-white dark:bg-black transition-colors duration-500">
+    <div className="relative w-full h-[85vh] overflow-hidden bg-white dark:bg-black transition-colors duration-500"
+>
       <Swiper
         modules={[Pagination, Autoplay, EffectFade, Parallax]}
         autoplay={{ delay: 5000 }}

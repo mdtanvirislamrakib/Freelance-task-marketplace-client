@@ -40,17 +40,26 @@ const Navbar = ({ toogleTheme }) => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Add Task", href: "/add-task" },
-    { name: "Browse Tasks", href: "/browse-tasks" },
-    { name: "My Posted Tasks", href: `/my-posted-tasks/${user?.email}` },
-    { name: "Our Community", href: `/community` },
+    ...(user
+      ? [
+        { name: "About Us", href: "/about" },
+        { name: "Add Task", href: "/add-task" },
+        { name: "Browse Tasks", href: "/browse-tasks" },
+        { name: "My Posted Tasks", href: `/my-posted-tasks/${user.email}` },
+        { name: "Our Community", href: "/community" },
+      ]
+      : [
+        { name: "About Us", href: "/about" },
+        { name: "Browse Tasks", href: "/browse-tasks" },
+        { name: "Our Community", href: "/community" },
+      ]),
   ];
 
+
   const navLinkClass = ({ isActive }) =>
-    `relative group text-sm font-medium px-2 py-1 transition duration-300 ${
-      isActive
-        ? "dark:text-indigo-400 text-indigo-700"
-        : "dark:text-gray-200 text-gray-900 dark:hover:text-white hover:text-gray-700"
+    `relative group text-sm font-medium px-2 py-1 transition duration-300 ${isActive
+      ? "dark:text-indigo-400 text-indigo-700"
+      : "dark:text-gray-200 text-gray-900 dark:hover:text-white hover:text-gray-700"
     }`;
 
   const underline =
@@ -185,8 +194,7 @@ const Navbar = ({ toogleTheme }) => {
               key={link.name}
               to={link.href}
               className={({ isActive }) =>
-                `block font-medium transition ${
-                  isActive ? "text-indigo-400" : "text-gray-200 hover:text-white"
+                `block font-medium transition ${isActive ? "text-indigo-400" : "text-gray-200 hover:text-white"
                 }`
               }
               onClick={() => setIsOpen(false)}
