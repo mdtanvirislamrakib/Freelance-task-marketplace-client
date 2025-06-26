@@ -2,13 +2,30 @@ import React, { useState, useContext } from 'react';
 import { Link, NavLink, Outlet } from 'react-router';
 import { FiHome, FiBox, FiPlusSquare, FiUser, FiLogOut, FiMenu, FiX, FiArrowLeft } from 'react-icons/fi';
 import { AuthContext } from '../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const DashboardLayout = () => {
-    const { user, logout } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const handleLogout = () => {
-        logout();
+        logOut()
+              .then(() => {
+                Swal.fire({
+                  position: "top-right",
+                  icon: "success",
+                  title: "Logout Successfully!",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+              })
+              .catch((error) => {
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: error.message,
+                });
+              });
         // Optionally redirect after logout
     };
 

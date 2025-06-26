@@ -7,6 +7,7 @@ import { Tooltip } from 'react-tooltip';
 import { MdSunny } from "react-icons/md";
 import { FaMoon } from "react-icons/fa";
 import {motion} from "framer-motion"
+import logo from "../assets/logo.png"
 
 const Navbar = ({ toogleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -72,7 +73,8 @@ const Navbar = ({ toogleTheme }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Desktop Navbar */}
         <div className="hidden md:flex justify-between items-center h-16 text-black dark:text-white">
-          <div className="text-2xl font-bold text-indigo-400">TaskHub</div>
+          {/* <div className="text-2xl font-bold text-indigo-400">{logo}</div> */}
+          <img src={logo} alt="" className="w-52"/>
 
           <div className="flex-1 flex justify-center space-x-6">
             {navLinks.map((link) => (
@@ -186,7 +188,8 @@ const Navbar = ({ toogleTheme }) => {
 
         {/* Mobile Navbar */}
         <div className="md:hidden flex justify-between items-center h-16 text-white">
-          <div className="text-xl font-bold text-indigo-400">TaskHub</div>
+          {/* <div className="text-xl font-bold text-indigo-400">TaskHub</div> */}
+          <img src={logo} alt="" className="w-42"/>
 
           <div className="flex items-center space-x-4">
             {/* Mode toggle button for mobile */}
