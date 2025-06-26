@@ -25,7 +25,7 @@ const DashboardLayout = () => {
                 to={to}
                 end={end}
                 className={({ isActive }) =>
-                    `flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors  ${
+                    `flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
                         isActive
                             ? 'bg-blue-50 text-blue-600 dark:bg-gray-700'
                             : 'text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'
@@ -79,7 +79,7 @@ const DashboardLayout = () => {
             {/* Mobile Sidebar Overlay */}
             {mobileMenuOpen && (
                 <div 
-                    className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden cursor-pointer"
+                    className="fixed inset-0  bg-opacity-50 z-40 md:hidden cursor-pointer"
                     onClick={() => setMobileMenuOpen(false)}
                 />
             )}
@@ -88,7 +88,7 @@ const DashboardLayout = () => {
             {renderSidebar(true)}
 
             {/* Main Content Area */}
-            <div className="flex-1 flex flex-col overflow-hidden md:ml-64">
+            <div className="flex-1 flex flex-col overflow-hidden md:ml-64 relative">
                 {/* Header */}
                 <header className="bg-white dark:bg-gray-800 shadow-sm z-10">
                     <div className="flex items-center justify-between p-4">
@@ -127,7 +127,7 @@ const DashboardLayout = () => {
                 </header>
 
                 {/* Dynamic Content */}
-                <main className="flex-1 overflow-y-auto p-4 md:p-6">
+                <main className="flex-1 overflow-y-auto p-4 md:p-6 bg-gray-50 dark:bg-gray-900">
                     <Outlet />
                 </main>
             </div>
