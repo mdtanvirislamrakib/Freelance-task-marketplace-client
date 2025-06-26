@@ -47,6 +47,7 @@ const Navbar = ({ toogleTheme }) => {
         { name: "Browse Tasks", href: "/browse-tasks" },
         { name: "My Posted Tasks", href: `/my-posted-tasks/${user.email}` },
         { name: "Our Community", href: "/community" },
+        { name: "Contact", href: "/contact" },
       ]
       : [
         { name: "About Us", href: "/about" },

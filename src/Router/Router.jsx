@@ -16,6 +16,7 @@ import UpdateTask from "../Pages/UpdateTask";
 import PrivetRoute from "../Provider/PrivetRoute";
 import JoinOurCommunity from "../Pages/JoinOurCommunity";
 import AboutUs from "../Pages/AboutUs";
+import ContactPage from "../Pages/ContactPage";
 
 
 export const router = createBrowserRouter([
@@ -39,6 +40,12 @@ export const router = createBrowserRouter([
         {
           path: "/about",
           Component: AboutUs
+        },
+        {
+          path: "/contact",
+          element: <PrivetRoute>
+            <ContactPage></ContactPage>
+          </PrivetRoute>
         },
         {
           path: '/signup',
