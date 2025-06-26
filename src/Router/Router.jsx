@@ -14,6 +14,7 @@ import MyPostedTask from "../Pages/MyPostedTask";
 import Signup from "../Pages/Signup";
 import UpdateTask from "../Pages/UpdateTask";
 import PrivetRoute from "../Provider/PrivetRoute";
+import JoinOurCommunity from "../Pages/JoinOurCommunity";
 
 
 export const router = createBrowserRouter([
@@ -27,6 +28,12 @@ export const router = createBrowserRouter([
           loader: () => fetch('https://freelance-task-marketplace-server-peach.vercel.app/tasks'),
           hydrateFallbackElement: <Loader></Loader>,
           Component: Home,
+        },
+        {
+          path: "/community",
+          element: <PrivetRoute>
+            <JoinOurCommunity></JoinOurCommunity>
+          </PrivetRoute>
         },
         {
           path: '/signup',

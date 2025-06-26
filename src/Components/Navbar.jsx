@@ -43,6 +43,7 @@ const Navbar = ({ toogleTheme }) => {
     { name: "Add Task", href: "/add-task" },
     { name: "Browse Tasks", href: "/browse-tasks" },
     { name: "My Posted Tasks", href: `/my-posted-tasks/${user?.email}` },
+    { name: "Our Community", href: `/community` },
   ];
 
   const navLinkClass = ({ isActive }) =>
